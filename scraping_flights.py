@@ -118,8 +118,8 @@ df_flights = pd.DataFrame(
 df_flights.to_csv('flights{}.csv'.format(
     datetime.strftime(datetime.today(), '%Y%m%d')))
 full_flights_df = pd.read_csv('flights.csv')
-pd.concat([df_flights, full_flights_df],
-          ignore_index=True).to_csv('flights.csv')
+pd.concat([df_flights, full_flights_df], ignore_index=True).to_csv(
+    'flights.csv', index=False)
 
 df_info_flights = pd.DataFrame(info_flight, columns=[
                                'flight_date', 'event', 'latitude', 'longitude', 'mph', 'altitude'])
@@ -127,4 +127,4 @@ df_info_flights.to_csv('info_flights{}.csv'.format(
     datetime.strftime(datetime.today(), '%Y%m%d')))
 full_info_flights_df = pd.read_csv('info_flights.csv')
 pd.concat([df_info_flights, full_info_flights_df],
-          ignore_index=True).to_csv('info_flights.csv')
+          ignore_index=True).to_csv('info_flights.csv', index=False)
